@@ -1,0 +1,452 @@
+
+:root {
+    --primary-color:rgb(55, 127, 227);
+    --secondary-color: #1cb0f6;
+    --accent-color: #ffc800;
+    --dark-color: #2e2e2e;
+    --light-color: #f8f9fa;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    font-family: 'Nunito', Arial, sans-serif; /* добавляем резервные шрифты */
+    background: linear-gradient(135deg,rgb(9, 47, 61) 0%,rgb(10, 6, 52) 100%);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+/* Контейнер для звёзд */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Стили для звёзд */
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: falling linear infinite;
+    opacity: 0.8;
+}
+
+/* Анимация падения звёзд */
+@keyframes falling {
+    0% {
+        transform: translateY(-100px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://duolingo-images.s3.amazonaws.com/backgrounds/duolingo_default_bg.png');
+    background-size: cover;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Остальные стили остаются без изменений */
+.logo {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: var(--transition);
+    animation: bounce 2s infinite;
+}
+
+.logo img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.logo:hover {
+    transform: scale(1.1) rotate(15deg);
+    animation: none;
+}
+
+.header {
+    margin-bottom: 40px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+    top: 0 !important;
+    transform: none !important;
+    margin-top: 0 !important;
+}
+
+/* Добавьте в ваш существующий CSS */
+.header h1 {
+    word-break: keep-all; /* предотвращает разрыв слов */
+    hyphens: none; /* отключает переносы слов */
+    padding: 0 10px; /* добавляет отступы по бокам */
+  }
+
+.header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+    max-width: 100%;
+  overflow-x: hidden;
+}
+
+.card {
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    color: var(--dark-color);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: var(--primary-color);
+}
+
+.card:nth-child(2)::before {
+    background-color: var(--secondary-color);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card-icon {
+    transform: scale(1.2);
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: none;
+    width: 90%;
+    max-width: 400px;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.modal p {
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.modal-btn {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.register-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.login-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.close-btn {
+    background-color: transparent;
+    color: var(--dark-color);
+    border: 2px solid var(--dark-color);
+    margin-top: 20px;
+}
+
+.modal-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn:hover {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.language-selector {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 100;
+}
+
+.language-selector:hover {
+    transform: scale(1.05);
+}
+
+.language-selector img {
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    opacity: 0;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+/* Добавьте эти медиа-запросы в конец вашего CSS */
+
+.text-container {
+    text-align: center;
+    padding: 20px;
+    white-space: nowrap; /* предотвращает перенос текста */
+    overflow: hidden; /* скрывает текст, если выходит за границы */
+    text-overflow: ellipsis; /* добавляет многоточие если текст обрезается */
+  }
+  
+
+@media (max-width: 768px) {
+    body {
+      padding: 20px;
+      justify-content: flex-start;
+    }
+    .text-container {
+        white-space: normal; /* разрешает перенос на маленьких экранах */
+        padding: 10px;
+        font-size: 1.2rem; /* увеличиваем размер шрифта для мобильных */
+      }
+  
+    .header {
+      margin-bottom: 20px;
+    }
+  
+    .header h1 {
+      font-size: 1.8rem;
+    }
+  
+    .header p {
+      font-size: 1rem;
+    }
+  
+    .container {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      width: 100%;
+    }
+  
+    .card {
+      width: 100%;
+      max-width: 300px;
+      height: 120px;
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: 0 20px;
+    }
+  
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 0;
+      margin-right: 15px;
+    }
+  
+    .logo {
+      width: 60px;
+      height: 60px;
+      top: 10px;
+      right: 10px;
+    }
+  
+    .language-selector {
+      bottom: 10px;
+      right: 10px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+    }
+  
+    .language-selector img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header h1 {
+      font-size: 1.5rem;
+    }
+  
+    .header p {
+      font-size: 0.9rem;
+    }
+  
+    .card {
+      height: 100px;
+      padding: 0 15px;
+      font-size: 1rem;
+    }
+  
+    .card-icon {
+      font-size: 1.8rem;
+      margin-right: 10px;
+    }
+  
+    .modal {
+      width: 95%;
+      padding: 20px;
+    }
+  
+    .modal h2 {
+      font-size: 1.5rem;
+    }
+  
+    .modal-btn {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .header h1 {
+      font-size: 1.3rem;
+    }
+  
+    .card {
+      height: 90px;
+    }
+  
+    .card-icon {
+      font-size: 1.5rem;
+    }
+  }

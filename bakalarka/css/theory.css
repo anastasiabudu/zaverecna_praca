@@ -1,0 +1,210 @@
+:root {
+    --primary: #3498db;
+    --secondary: #2ecc71;
+    --dark: #2c3e50;
+    --light: #ecf0f1;
+    --gray: #95a5a6;
+    --warning: #f44336;
+    --yellow: #ffd600;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+}
+
+.module-meta {
+    color: var(--gray);
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.theory-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--dark);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 10px;
+    margin-top: 0;
+    flex-grow: 1;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin: 10px 5px;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-success {
+    background-color: var(--secondary);
+}
+
+.btn-success:hover {
+    background-color: #27ae60;
+}
+
+.btn-secondary {
+    background-color: var(--gray);
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+.note {
+    background-color: #fffde7;
+    padding: 15px;
+    border-left: 4px solid var(--yellow);
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.progress-badge {
+    display: inline-block;
+    background-color: var(--secondary);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+.module-actions {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.module-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Обновленные стили для кнопки Try Test (demo) */
+.guest-warning .btn {
+    background-color: #ff9800; /* Оранжевый цвет для демо-кнопки */
+    color: white;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.guest-warning .btn:hover {
+    background-color: #f57c00; /* Темнее оранжевый при наведении */
+}
+
+.guest-warning {
+    background-color: #fff3e0; /* Светло-оранжевый фон */
+    border-left: 4px solid #ff9800; /* Оранжевая граница */
+    color: #5d4037; /* Темно-коричневый текст */
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.guest-warning a:not(.btn) {
+    color: #e65100; /* Темно-оранжевый для ссылок */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.guest-warning a:not(.btn):hover {
+    text-decoration: underline;
+}
+
+/* Улучшения для мобильных экранов */
+@media (max-width: 768px) {
+    .theory-container {
+        padding: 15px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .module-navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .module-navigation a {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
+    .btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        word-break: break-word;
+    }
+    
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .module-meta {
+        margin-top: 8px;
+        font-size: 0.8rem;
+    }
+    
+    .note, .guest-warning {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Дополнительные исправления для текста */
+.theory-container {
+    overflow-x: hidden;
+}
+
+.progress-badge {
+    white-space: nowrap;
+}
+
+/* Фикс для длинных слов */
+.module-meta, .note, .guest-warning p {
+    word-break: break-word;
+    hyphens: auto;
+}

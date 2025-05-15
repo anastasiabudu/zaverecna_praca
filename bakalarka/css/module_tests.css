@@ -1,0 +1,170 @@
+/* module_tests.css - Оптимизированные стили для страницы тестирования */
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Основные стили */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 15px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+    font-size: 1.5em;
+  }
+  
+/* module_tests.css - Оптимизированные стили для страницы тестирования */
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Основные стили */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin: 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+  font-size: clamp(1.2rem, 4vw, 1.5rem); /* Адаптивный размер шрифта */
+  word-break: break-word;
+}
+
+/* Контейнеры */
+.test-container,
+.test-result,
+.message,
+.progress-info {
+  max-width: 800px;
+  margin: 15px auto;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  animation: fadeIn 0.3s ease-out;
+  overflow: hidden; /* Предотвращает выход содержимого за границы */
+}
+
+/* Вопросы и ответы */
+.question {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  word-break: break-word;
+}
+
+.option {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.option input[type="radio"] {
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+/* Результаты теста */
+.test-result.success {
+  background-color: #e8f5e9;
+  border-left: 4px solid #2e7d32;
+}
+
+.test-result.error {
+  background-color: #ffebee;
+  border-left: 4px solid #c62828;
+}
+
+/* Обновленные стили для кнопок - компактная версия */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn, .submit-btn, .top-back-btn {
+  padding: 6px 12px; /* Уменьшенный padding */
+  border-radius: 4px;
+  font-size: 13px; /* Уменьшенный размер шрифта */
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  border: none;
+  min-width: auto; /* Убрана фиксированная минимальная ширина */
+  width: auto; /* Ширина по содержимому */
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  height: 32px; /* Фиксированная высота */
+}
+
+.top-back-btn {
+  background-color: #3498db;
+  color: white;
+  margin-right: auto; /* Выравнивание влево */
+}
+
+.submit-btn {
+  background-color: #2ecc71;
+  color: white;
+  margin-left: auto; /* Выравнивание вправо */
+}
+
+/* Иконки в кнопках */
+.btn i, .submit-btn i, .top-back-btn i {
+  font-size: 12px; /* Уменьшенные иконки */
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .button-container {
+    flex-wrap: nowrap;
+  }
+  
+  .btn, .submit-btn, .top-back-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    flex-direction: row;
+    gap: 8px;
+  }
+  
+  .btn, .submit-btn, .top-back-btn {
+    width: 100%;
+  }
+}
